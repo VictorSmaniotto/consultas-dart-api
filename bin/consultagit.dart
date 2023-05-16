@@ -12,7 +12,10 @@ void request(String user) async {
     final List<dynamic> repositorios = repos.data;
     final nomeRepos =
         repositorios.map((repo) => repo['name'].toString()).toList();
-    return print(nomeRepos);
+    final urlRepos =
+        repositorios.map((repo) => repo['url'].toString()).toList();
+
+    return print("Repositórios: $nomeRepos \n\n URL: $urlRepos");
   }
 
   print("\nRepositório de ${response.data['login']}");
