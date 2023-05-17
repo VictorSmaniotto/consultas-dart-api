@@ -7,7 +7,14 @@ void main() {
       .then((response) {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      print(data[1]);
+      print("========== POSTS ===========");
+      for (var body in data) {
+        print("userID: ${body['userId']}");
+        print("ID: ${body['id']}");
+        print("Title: ${body['title']}");
+        print("Body: ${body['body']}");
+        print("=========================");
+      }
     } else {
       print('Erro ao fazer requisição: ${response.statusCode}');
     }
