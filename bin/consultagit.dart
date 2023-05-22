@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
 
 final dio = Dio();
-
+var headers = {
+  'Authorization':
+      'Bearer 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'
+};
 void request(String user) async {
   Response response;
   response = await dio.get('https://api.github.com/users/$user');
