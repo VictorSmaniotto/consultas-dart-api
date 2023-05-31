@@ -16,7 +16,7 @@ void request(String user) async {
     final nomeRepos =
         repositorios.map((repo) => repo['name'].toString()).toList();
     final urlRepos =
-        repositorios.map((repo) => repo['url'].toString()).toList();
+        repositorios.map((repo) => repo['clone_url'].toString()).toList();
 
     return print("Repositórios: $nomeRepos \n\n URL: $urlRepos");
   }
