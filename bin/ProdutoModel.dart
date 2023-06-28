@@ -10,6 +10,14 @@ class Produto {
     required this.preco,
     required this.dataAlteracao,
   });
+
+  factory Produto.fromJson(Map<String, dynamic> json) {
+    return Produto(
+        codigo: json['codigo'],
+        nome: json['nome'],
+        preco: json['preco'],
+        dataAlteracao: DateTime.parse(json['dataAlteracao']));
+  }
 }
 
 void main() {
