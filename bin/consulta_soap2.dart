@@ -3,7 +3,9 @@ import 'package:xml/xml.dart';
 
 void main() {
   retornaNomesPaises().then((nomePais) {
-    print(nomePais);
+    // print(nomePais);
+    final nomesFormatados = nomePais.join('\n');
+    print(nomesFormatados);
   }).catchError((error) {
     print('Erro: $error');
   });
@@ -35,7 +37,9 @@ Future<List<String>> retornaNomesPaises() async {
         .findAllElements('m:ListOfCountryNamesByNameResult');
     if (listaDePaises.isNotEmpty) {
       final nomeDoPais = listaDePaises.first.innerText
-          .split(',')
+          .split('\n')
+          .where((name) => name.trim().isNotEmpty)
+          // .map((name) => "${name.trim()} \n")
           .map((name) => name.trim())
           .toList();
       return nomeDoPais;
